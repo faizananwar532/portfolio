@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faizan Anwar - DevOps Engineer & SRE</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -12,41 +16,60 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <h1 class="logo">Faizan Anwar</h1>
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-terminal"></i>
+                </div>
+                <div class="logo-text">
+                    <span>Faizan Anwar</span>
+                </div>
+            </a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#tech-articles">Tech Articles</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#tech-articles" class="nav-link">Tech Articles</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="burger">
+            <button class="burger" aria-label="Toggle navigation">
                 <div class="line1"></div>
                 <div class="line2"></div>
                 <div class="line3"></div>
-            </div>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Hi, I'm <span class="highlight">Faizan Anwar</span></h1>
-                <h2>DevOps Engineer & Site Reliability Engineer</h2>
-                <p>Building reliable infrastructure and implementing "You build it, you run it" DevOps principles</p>
+            <div class="hero-content animate-on-scroll">
+                <h1>Transforming Ideas into<br><span class="highlight">Cloud-Native Reality</span></h1>
+                <h2>DevOps Engineer & Site Reliability Expert</h2>
+                <p class="hero-tagline">
+                    Architecting scalable solutions where <strong>reliability meets innovation</strong>. 
+                    Embracing the philosophy of <strong>"Engineer it, Own it, Excel at it"</strong> to build 
+                    robust cloud infrastructures that drive business success.
+                </p>
                 <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    <a href="#projects" class="btn btn-primary">
+                        <span class="material-icons">rocket_launch</span>
+                        <span>Explore My Work</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span class="material-icons">chat</span>
+                        <span>Let's Connect</span>
+                    </a>
                 </div>
             </div>
-            <div class="hero-image">
+            <div class="hero-image animate-on-scroll">
+                <img src="images/profile.jpg" alt="Faizan Anwar" class="profile-image">
                 <div class="profile-placeholder">
                     <i class="fas fa-user-circle"></i>
                 </div>
             </div>
         </div>
+        <div class="hero-background"></div>
     </section>
 
     <!-- About Section -->

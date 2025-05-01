@@ -1,15 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Navigation menu toggle for mobile
+    // Enhanced Navigation
+    const navbar = document.querySelector('.navbar');
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-links li');
+    const header = document.querySelector('.hero');
     
+    // Intersection Observer for navbar
+    const navObserver = new IntersectionObserver(
+        (entries) => {
+            if (!entries[0].isIntersecting) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        },
+        { threshold: 0.9 }
+    );
+    
+    if (header) {
+        navObserver.observe(header);
+    }
+    
+    // Enhanced Mobile Navigation
     if (burger) {
         burger.addEventListener('click', () => {
             // Toggle Nav
             nav.classList.toggle('nav-active');
             
-            // Animate Links
+            // Animate Links with Stagger Effect
             navLinks.forEach((link, index) => {
                 if (link.style.animation) {
                     link.style.animation = '';
@@ -18,47 +37,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
-            // Burger Animation
+            // Animate Burger
             burger.classList.toggle('toggle');
+            
+            // Prevent body scroll when menu is open
+            document.body.classList.toggle('nav-open');
         });
     }
     
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.padding = '10px 0';
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.padding = '15px 0';
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        }
-    });
-    
-    // Project filtering
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            
-            const filterValue = button.getAttribute('data-filter');
-            
-            // Filter projects
-            projectCards.forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-    
-    // Smooth scrolling for navigation links
+    // Smooth Scrolling with Offset
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -71,13 +58,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (nav.classList.contains('nav-active')) {
                     nav.classList.remove('nav-active');
                     burger.classList.remove('toggle');
+                    document.body.classList.remove('nav-open');
                     navLinks.forEach(link => {
                         link.style.animation = '';
                     });
                 }
                 
-                // Calculate offset for fixed navbar
-                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                // Calculate scroll position with navbar offset
+                const navbarHeight = navbar.offsetHeight;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                 
                 window.scrollTo({
@@ -88,37 +76,85 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Animation for elements when scrolled into view
-    const observer = new IntersectionObserver((entries) => {
+    // Enhanced Scroll Animations
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-            }
+            if (!entry.isIntersecting) return;
+            
+            entry.target.classList.add('appear');
+            observer.unobserve(entry.target);
         });
-    }, {
-        threshold: 0.1
+    }, observerOptions);
+    
+    // Observe elements for animation
+    document.querySelectorAll('.animate-on-scroll').forEach(element => {
+        element.classList.add('initially-hidden');
+        appearOnScroll.observe(element);
     });
     
-    // Observe elements to animate
-    document.querySelectorAll('.section-title, .project-card, .skill-category, .timeline-item, .cert-item, .education-item, .contact-item, .article-card').forEach(element => {
-        observer.observe(element);
+    // Project Filtering with Smooth Transitions
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Update active button with ripple effect
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.blur();
+            });
+            button.classList.add('active');
+            
+            const filterValue = button.getAttribute('data-filter');
+            
+            // Filter projects with smooth transitions
+            projectCards.forEach(card => {
+                card.classList.add('transitioning');
+                
+                setTimeout(() => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.classList.remove('transitioning');
+                        }, 50);
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('transitioning');
+                    }
+                }, 300);
+            });
+        });
+    });
+    
+    // Add Material Ripple Effect to Buttons
+    const buttons = document.querySelectorAll('.btn, .filter-btn');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = button.getBoundingClientRect();
+            
+            ripple.className = 'ripple';
+            ripple.style.left = `${e.clientX - rect.left}px`;
+            ripple.style.top = `${e.clientY - rect.top}px`;
+            
+            button.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
     });
 });
 
-// Add CSS animation class
+// Add dynamic styles for animations
 const style = document.createElement('style');
 style.textContent = `
-    @keyframes fadeUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
     @keyframes navLinkFade {
         from {
             opacity: 0;
@@ -130,24 +166,46 @@ style.textContent = `
         }
     }
     
-    .section-title, .project-card, .skill-category, .timeline-item, .cert-item, .education-item, .contact-item, .article-card {
+    .initially-hidden {
         opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
     
-    .animate {
-        animation: fadeUp 0.6s ease-out forwards;
+    .appear {
+        opacity: 1;
+        transform: translateY(0);
     }
     
-    .burger.toggle .line1 {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    
-    .burger.toggle .line2 {
+    .transitioning {
         opacity: 0;
+        transform: scale(0.95);
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
     }
     
-    .burger.toggle .line3 {
-        transform: rotate(45deg) translate(-5px, -6px);
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+        pointer-events: none;
+    }
+    
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+    
+    .nav-open {
+        overflow: hidden;
+    }
+    
+    .navbar-scrolled {
+        padding: calc(var(--spacing-unit)) 0;
+        background-color: rgba(255, 255, 255, 0.98);
     }
 `;
 document.head.appendChild(style);
