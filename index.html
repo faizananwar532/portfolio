@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Chart.js for gauge chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -29,9 +31,10 @@
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#tech-articles" class="nav-link">Tech Articles</a></li>
+                <li><a href="#tech-articles" class="nav-link">Articles</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <a href="Faizan_Anwar_Resume.pdf" class="btn btn-primary navbar-resume-btn" download>Download Resume</a>
             <button class="burger" aria-label="Toggle navigation">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -42,9 +45,10 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
+        <canvas id="hero-particles"></canvas>
         <div class="container">
             <div class="hero-content animate-on-scroll">
-                <h1>Transforming Ideas into<br><span class="highlight">Cloud-Native Reality</span></h1>
+                <h1><span class="typing-text" style="color: var(--primary-color);">Transforming Ideas into</span><br><span class="gradient-text">Cloud-Native Reality</span></h1>
                 <h2>DevOps Engineer & Site Reliability Expert</h2>
                 <p class="hero-tagline">
                     Architecting scalable solutions where <strong>reliability meets innovation</strong>. 
@@ -62,8 +66,8 @@
                     </a>
                 </div>
             </div>
-            <div class="hero-image animate-on-scroll">
-                <img src="images/profile.jpg" alt="Faizan Anwar" class="profile-image">
+            <div class="hero-image animate-on-scroll" style="position:relative;">
+                <img src="images/profile.jpg" alt="Faizan Anwar" class="profile-image" style="position:relative;z-index:1;">
                 <div class="profile-placeholder">
                     <i class="fas fa-user-circle"></i>
                 </div>
@@ -73,10 +77,18 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about section">
+    <section id="about" class="about section animate-on-scroll">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-btn red"></div>
+                        <div class="terminal-btn yellow"></div>
+                        <div class="terminal-btn green"></div>
+                    </div>
+                    <div class="terminal-content"></div>
+                </div>
                 <div class="about-text">
                     <p>DevOps Engineer/Site Reliability Engineer with 5+ years of experience building and maintaining CI/CD pipelines, microservices architectures, and high-availability systems. Expert in infrastructure as code with Terraform, containerization with Docker/Kubernetes, and monitoring tools (ELK, Prometheus, Grafana).</p>
                     <p>Proven track record implementing secure networking solutions and optimizing cloud infrastructure (AWS, Azure, GCP) resulting in 40% cost reductions and 30% performance improvements. Currently pursuing a Master's in Global Software Development at Hochschule Fulda, Germany while focusing on "You build it, you run it" DevOps principles.</p>
@@ -85,19 +97,19 @@
                         <a href="https://linkedin.com/in/faizan-anwar-00761a154" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                         <a href="mailto:faizananwar532@gmail.com"><i class="fas fa-envelope"></i> Email</a>
                     </div>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-text">Years Experience</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">3+</span>
-                        <span class="stat-text">Major Projects</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">3+</span>
-                        <span class="stat-text">Technical Articles</span>
+                    <div class="about-stats animate-stagger">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-text">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-text">Major Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-text">Technical Articles</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -105,10 +117,10 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills section">
+    <section id="skills" class="skills section animate-on-scroll">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-content">
+            <div class="skills-content animate-stagger">
                 <div class="skill-category">
                     <h3>Cloud Platforms</h3>
                     <div class="skill-items">
@@ -137,7 +149,6 @@
                         <div class="skill-item"><i class="fas fa-fire"></i> Prometheus</div>
                         <div class="skill-item"><i class="fas fa-chart-bar"></i> Grafana</div>
                         <div class="skill-item"><i class="fas fa-code"></i> Terraform</div>
-                        <div class="skill-item"><i class="fas fa-layer-group"></i> Terragrunt</div>
                         <div class="skill-item"><i class="fas fa-cogs"></i> Ansible</div>
                     </div>
                 </div>
@@ -157,10 +168,10 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience section">
+    <section id="experience" class="experience section animate-on-scroll">
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline">
+            <div class="timeline animate-stagger">
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">
@@ -177,6 +188,10 @@
                             <li>Configured secure networking components including DNS, VPN, firewalls, and load balancers</li>
                             <li>Implemented best practices for certificates, SSL/TLS, and secrets management</li>
                             <li>Applied SRE principles with root-cause analysis, leading to 40% cost reduction</li>
+                            <li>Automated cloud resource provisioning and scaling for high-availability systems</li>
+                            <li>Led incident response and post-mortem analysis to improve system reliability</li>
+                            <li>Mentored junior engineers and conducted DevOps best practices workshops</li>
+                            <li>Collaborated with cross-functional teams to deliver cloud-native solutions</li>
                         </ul>
                     </div>
                 </div>
@@ -194,6 +209,8 @@
                             <li>Containerized Python microservices (FastAPI) and implemented Docker-based workflows</li>
                             <li>Set up and maintained secure IT environments with focus on security protocols</li>
                             <li>Configured networking services including DNS, IP, ports, firewalls, and load balancing</li>
+                            <li>Optimized cloud costs and improved deployment efficiency by 30%</li>
+                            <li>Integrated monitoring and alerting systems for proactive incident management</li>
                         </ul>
                     </div>
                 </div>
@@ -202,7 +219,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects section">
+    <section id="projects" class="projects section animate-on-scroll">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-filters">
@@ -211,11 +228,26 @@
                 <button class="filter-btn" data-filter="azure">Azure</button>
                 <button class="filter-btn" data-filter="gcp">GCP</button>
             </div>
-            <div class="projects-grid">
+            <div class="projects-grid animate-stagger">
                 <!-- Testfuse Project -->
                 <div class="project-card" data-category="gcp">
                     <div class="project-img">
-                        <img src="/api/placeholder/400/320" alt="Testfuse">
+                        <img src="images/testfuse.png" alt="Testfuse">
+                        <div class="diagram-overlay">
+                            <!-- Sample SVG diagram with cloud icons -->
+                            <svg width="180" height="80" viewBox="0 0 180 80">
+                                <circle cx="40" cy="40" r="18" fill="#FF9900" />
+                                <text x="40" y="45" font-size="16" text-anchor="middle" fill="#fff">AWS</text>
+                                <rect x="90" y="30" width="36" height="24" rx="6" fill="#2196F3" />
+                                <text x="108" y="46" font-size="14" text-anchor="middle" fill="#fff">GKE</text>
+                                <line x1="58" y1="40" x2="90" y2="42" stroke="#888" stroke-width="2" marker-end="url(#arrow)" />
+                                <defs>
+                                    <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto" markerUnits="strokeWidth">
+                                        <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#888" />
+                                    </marker>
+                                </defs>
+                            </svg>
+                        </div>
                     </div>
                     <div class="project-info">
                         <h3>Testfuse</h3>
@@ -232,7 +264,7 @@
                             <span>GCP</span>
                             <span>GitLab CI</span>
                             <span>Argo CD</span>
-                            <span>GKE</span>
+                            <!-- <span>GKE</span> -->
                             <span>Terraform</span>
                         </div>
                         <div class="project-links">
@@ -244,7 +276,7 @@
                 <!-- Levvy Project -->
                 <div class="project-card" data-category="aws">
                     <div class="project-img">
-                        <img src="/api/placeholder/400/320" alt="Levvy">
+                        <img src="images/levvy.png" alt="Levvy">
                     </div>
                     <div class="project-info">
                         <h3>Levvy</h3>
@@ -259,7 +291,7 @@
                         </div>
                         <div class="project-tags">
                             <span>AWS</span>
-                            <span>EKS</span>
+                            <!-- <span>EKS</span> -->
                             <span>Terraform</span>
                             <span>Terragrunt</span>
                             <span>Vault</span>
@@ -274,7 +306,7 @@
                 <!-- Crewnetics Project -->
                 <div class="project-card" data-category="azure">
                     <div class="project-img">
-                        <img src="/api/placeholder/400/320" alt="Crewnetics">
+                        <img src="images/crewnetics.png" alt="Crewnetics">
                     </div>
                     <div class="project-info">
                         <h3>Crewnetics</h3>
@@ -289,7 +321,7 @@
                         </div>
                         <div class="project-tags">
                             <span>Azure</span>
-                            <span>AKS</span>
+                            <!-- <span>AKS</span> -->
                             <span>ELK</span>
                             <span>Prometheus</span>
                             <span>Grafana</span>
@@ -334,10 +366,10 @@
     </section>
 
     <!-- Technical Articles Section -->
-    <section id="tech-articles" class="tech-articles section">
+    <section id="tech-articles" class="tech-articles section animate-on-scroll">
         <div class="container">
             <h2 class="section-title">Technical Articles</h2>
-            <div class="articles-grid">
+            <div class="articles-grid animate-stagger">
                 <div class="article-card">
                     <div class="article-icon">
                         <i class="fas fa-shield-alt"></i>
@@ -346,7 +378,7 @@
                         <h3>How can you use Aqua Trivy to enhance DevSecOps in your CI/CD pipelines?</h3>
                         <p class="article-date">2023</p>
                         <p class="article-desc">An exploration of implementing container security scanning with Aqua Trivy to strengthen DevSecOps practices in continuous integration and deployment pipelines.</p>
-                        <a href="#" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://venturenox.com/blog/how-can-you-use-aqua-trivy-to-enhance-devsecops-in-your-ci-cd-pipelines/" class="btn btn-primary mt-4 article-btn" target="_blank">Read Article <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 
@@ -358,7 +390,7 @@
                         <h3>Importance of Terraform as IaaC in DevOps</h3>
                         <p class="article-date">2022</p>
                         <p class="article-desc">A comprehensive guide on how Infrastructure as Code with Terraform transforms DevOps practices and enables consistent, version-controlled infrastructure deployment.</p>
-                        <a href="#" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://venturenox.com/blog/importance-of-terraform-as-iaac-in-devops/" class="btn btn-primary mt-4 article-btn" target="_blank">Read Article <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 
@@ -370,7 +402,7 @@
                         <h3>Ensuring High Availability and Resilience in Amazon EKS</h3>
                         <p class="article-date">2022</p>
                         <p class="article-desc">Best practices and architectural patterns for building resilient Kubernetes clusters on Amazon EKS that can withstand failures and provide uninterrupted service.</p>
-                        <a href="#" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://venturenox.com/blog/amazon-eks-2-high-availability-and-resilience/" class="btn btn-primary mt-4 article-btn" target="_blank">Read Article <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -378,10 +410,10 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="education section">
+    <section id="education" class="education section animate-on-scroll">
         <div class="container">
             <h2 class="section-title">Education</h2>
-            <div class="education-timeline">
+            <div class="education-timeline animate-stagger">
                 <div class="education-item">
                     <div class="education-icon">
                         <i class="fas fa-graduation-cap"></i>
@@ -408,42 +440,46 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    <section id="contact" class="contact section animate-on-scroll">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-intro text-center mb-8" style="font-size:1.15rem;color:#555;max-width:600px;margin:0 auto 2.5rem auto;">Let's connect! I'm always open to new opportunities, collaborations, and interesting conversations.</p>
             <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
+                <div class="contact-info animate-stagger">
+                    <a href="mailto:faizananwar532@gmail.com" class="contact-item contact-card" target="_blank">
                         <i class="fas fa-envelope"></i>
                         <h3>Email</h3>
-                        <p><a href="mailto:faizananwar532@gmail.com">faizananwar532@gmail.com</a></p>
-                    </div>
-                    <div class="contact-item">
+                        <p>faizananwar532@gmail.com</p>
+                    </a>
+                    <a href="https://linkedin.com/in/faizan-anwar-00761a154" class="contact-item contact-card" target="_blank">
                         <i class="fab fa-linkedin"></i>
                         <h3>LinkedIn</h3>
-                        <p><a href="https://linkedin.com/in/faizan-anwar-00761a154" target="_blank">Connect on LinkedIn</a></p>
-                    </div>
-                    <div class="contact-item">
+                        <p>Connect on LinkedIn</p>
+                    </a>
+                    <a href="https://github.com/faizananwar532" class="contact-item contact-card" target="_blank">
                         <i class="fab fa-github"></i>
                         <h3>GitHub</h3>
-                        <p><a href="https://github.com/faizananwar532" target="_blank">Follow on GitHub</a></p>
-                    </div>
-                    <div class="contact-item">
+                        <p>Follow on GitHub</p>
+                    </a>
+                    <a href="tel:+4915141466701" class="contact-item contact-card" target="_blank">
                         <i class="fas fa-phone"></i>
                         <h3>Phone</h3>
-                        <p><a href="tel:+4915141466701">(+49)-151-41466701</a></p>
-                    </div>
+                        <p>(+49)-151-41466701</p>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer enhanced-footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2025 Faizan Anwar. All Rights Reserved.</p>
+                <div class="footer-main">
+                    <p>&copy; 2025 Faizan Anwar. All Rights Reserved.</p>
+                </div>
                 <div class="footer-social">
+                    <a href="#" class="back-to-top" title="Back to Top"><i class="fas fa-arrow-up"></i></a>
                     <a href="https://github.com/faizananwar532" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://linkedin.com/in/faizan-anwar-00761a154" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="mailto:faizananwar532@gmail.com"><i class="fas fa-envelope"></i></a>
