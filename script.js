@@ -172,6 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     initTerminal();
     initParticles();
+    initTyping();
     
     // Add the additional styles
     const style = document.createElement('style');

@@ -48,7 +48,7 @@
         <canvas id="hero-particles"></canvas>
         <div class="container">
             <div class="hero-content animate-on-scroll">
-                <h1><span class="typing-text" style="color: var(--primary-color);">Transforming Ideas into</span><br><span class="gradient-text">Cloud-Native Reality</span></h1>
+                <h1><span class="typing-text" style="color: var(--primary-color);"></span><br><span class="gradient-text">Cloud-Native Reality</span></h1>
                 <h2>DevOps Engineer & Site Reliability Expert</h2>
                 <p class="hero-tagline">
                     Architecting scalable solutions where <strong>reliability meets innovation</strong>. 
@@ -103,7 +103,7 @@
                             <span class="stat-text">Years Experience</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">3+</span>
+                            <span class="stat-number">7+</span>
                             <span class="stat-text">Major Projects</span>
                         </div>
                         <div class="stat-item">
@@ -251,6 +251,8 @@
                             <span>Argo CD</span>
                             <!-- <span>GKE</span> -->
                             <span>Terraform</span>
+                            <span>Kubernetes</span>
+                            <span>Stackdriver</span>
                         </div>
                         <div class="project-links">
                             <a href="https://testfuse.com" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Website</a>
@@ -318,32 +320,117 @@
                     </div>
                 </div>
                 
-                <!-- GitHub Project Section -->
-                <div class="project-card github-projects" data-category="all">
+                <!-- Infergram Project -->
+                <div class="project-card" data-category="gcp">
                     <div class="project-img">
-                        <img src="/api/placeholder/400/320" alt="GitHub Projects">
+                        <img src="images/infergram.png" alt="Infergram">
                     </div>
                     <div class="project-info">
-                        <h3>GitHub Projects</h3>
-                        <p>Check out my latest projects and contributions on GitHub</p>
+                        <h3>Infergram</h3>
+                        <p>Smarter Engagements: Infergram compiles vast amounts of audience interactions with presentations, content, and language—from your own portfolio and others. Crowd sourcing ...</p>
                         <div class="project-details">
-                            <p>I'm actively working on several DevOps and infrastructure projects that demonstrate best practices in:</p>
                             <ul>
-                                <li>Infrastructure as Code with Terraform</li>
-                                <li>Kubernetes deployment patterns</li>
-                                <li>CI/CD pipeline automation</li>
-                                <li>Cloud-native monitoring solutions</li>
+                                <li>Architected and deployed scalable GCP infrastructure for high-traffic audience analytics.</li>
+                                <li>Implemented GitOps workflows using ArgoCD for seamless and automated deployments.</li>
+                                <li>Integrated Drone CI for robust, automated build and test pipelines.</li>
+                                <li>Packaged and managed microservices with Helm3 and Kubernetes (GKE).</li>
+                                <li>Optimized real-time data processing and caching with Redis for instant engagement insights.</li>
+                                <!-- <li>Collaborated with cross-functional teams to deliver AI-driven analytics and productivity recommendations.</li> -->
                             </ul>
                         </div>
                         <div class="project-tags">
-                            <span>Open Source</span>
-                            <span>DevOps</span>
-                            <span>Infrastructure</span>
-                            <span>Automation</span>
+                            <span>GCP</span>
+                            <span>ArgoCD</span>
+                            <span>Drone CI</span>
+                            <span>Helm3</span>
+                            <span>Kubernetes</span>
+                            <span>Redis</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/faizananwar532" target="_blank"><i class="fab fa-github"></i> View GitHub Profile</a>
+                            <a href="https://infergram.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Visit Website</a>
                         </div>
+                    </div>
+                </div>
+                
+                <!-- GitHub Project Section -->
+                <div class="project-card github-projects" data-category="all">
+                    <div class="github-profile-header">
+                        <img src="https://github.com/faizananwar532.png" alt="Faizan Anwar" class="github-avatar">
+                        <div>
+                            <a href="https://github.com/faizananwar532" target="_blank" class="github-username">@faizananwar532</a>
+                            <div class="github-bio">DevOps Engineer | SRE | Cloud Native Enthusiast</div>
+                        </div>
+                    </div>
+                    <div class="github-repos-list">
+                        <div class="github-repo">
+                            <a href="https://github.com/faizananwar532/kube-status-dashboard" target="_blank" class="repo-name">Kubernetes Application Status Dashboard</a>
+                            <span class="repo-desc">Kubernetes status dashboard</span>
+                            <div class="repo-tags">
+                                <span class="repo-lang">Terraform</span>
+                                <span class="repo-lang">Kubernetes</span>
+                                <span class="repo-lang">Helm3</span>
+                                <span class="repo-lang">Docker</span>
+                                <span class="repo-lang">HTML</span>
+                                <span class="repo-lang">CSS</span>
+                                <span class="repo-lang">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="github-repo">
+                            <a href="https://github.com/faizananwar532/terraform_gcp" target="_blank" class="repo-name">GCP Infrastructure using Terraform</a>
+                            <span class="repo-desc">GCP Infrastructure as Code with Terraform</span>
+                            <div class="repo-tags">
+                                <span class="repo-lang">Terraform</span>
+                                <span class="repo-lang">GCP</span>
+                                <span class="repo-lang">GKE</span>
+                                <span class="repo-lang">GCS</span>
+                                <span class="repo-lang">Cloud Functions</span>
+                                <span class="repo-lang">Cloud Run</span>
+                                <span class="repo-lang">Cloud Build</span>
+                                <span class="repo-lang">Cloud Storage</span>
+                                <span class="repo-lang">Cloud SQL</span>
+                                <span class="repo-lang">Cloud DNS</span>
+                                <span class="repo-lang">Cloud Load Balancing</span>
+                                <span class="repo-lang">Cloud CDN</span>
+                            </div>
+                        </div>
+                        <div class="github-repo">
+                            <a href="https://github.com/faizananwar532/terraform_aws" target="_blank" class="repo-name">AWS Infrastructure using Terraform</a>
+                            <span class="repo-desc">AWS EKS Infrastructure with Terraform</span>
+                            <div class="repo-tags">
+                                <span class="repo-lang">Terraform</span>
+                                <span class="repo-lang">AWS</span>
+                                <span class="repo-lang">EKS</span>
+                                <span class="repo-lang">VPC</span>
+                                <span class="repo-lang">IAM</span>
+                                <span class="repo-lang">ECR</span>
+                                <span class="repo-lang">Subnets</span>
+                                <span class="repo-lang">Route Tables</span>
+                                <span class="repo-lang">Security Groups</span>
+                                <span class="repo-lang">NAT Gateway</span>
+                                <span class="repo-lang">EIP</span>
+                                <span class="repo-lang">EC2</span>
+                                <span class="repo-lang">S3</span>
+                                <span class="repo-lang">CloudFront</span>
+                                <span class="repo-lang">CloudTrail</span>
+                                <span class="repo-lang">CloudWatch</span>
+                            </div>
+                        </div>
+                        <div class="github-repo">
+                            <a href="https://github.com/faizananwar532/devops-cicd-pipelines-suite" target="_blank" class="repo-name">DevOps CICD Pipelines Suite</a>
+                            <span class="repo-desc">A Project which contains usage of different pipelins tools!</span>
+                            <div class="repo-tags">
+                                <span class="repo-lang">GitHub Actions</span>
+                                <span class="repo-lang">Drone CICD</span>
+                                <span class="repo-lang">Gitlab CICD</span>
+                                <span class="repo-lang">Jenkins</span>
+                                <span class="repo-lang">Azure DevOps</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/faizananwar532?tab=repositories" target="_blank" class="btn btn-primary">
+                            <i class="fab fa-github"></i> View All on GitHub
+                        </a>
                     </div>
                 </div>
             </div>
